@@ -8,6 +8,7 @@ public class EventoVo {
     private LocalDate fecha;
     private String lugar;
     private String estado;
+    
     public EventoVo(String id, String nombre, LocalDate fecha, String lugar, String estado) {
         this.id = id;
         this.nombre = nombre;

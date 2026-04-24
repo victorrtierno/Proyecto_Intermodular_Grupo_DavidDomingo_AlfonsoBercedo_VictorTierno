@@ -10,11 +10,7 @@ import vo.CantanteVo;
 
 public class CantanteDao {
 
-<<<<<<< HEAD
     public List<CantanteVo> obtenerCantantes(Connection conexion) {
-=======
-    public List<CantanteVo> obtenerCantante(Connection conexion) {
->>>>>>> david
         //Define la consulta sobre la tabla cantante:
         String consulta = "SELECT id, nombre, descripcion FROM cantante";
 

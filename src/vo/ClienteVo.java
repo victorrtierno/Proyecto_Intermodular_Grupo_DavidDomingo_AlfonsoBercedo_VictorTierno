@@ -1,20 +1,19 @@
 package vo;
 
-public class ClienteVo extends PersonaVo {
+public class ClienteVo {
     private String id;
     private String nombre;
     private String prApellido;
     private String sgApellido;
     private String email;
-    
+    private String contraseña;
     private String telefono;
 
-    public ClienteVo(String id, String nombre, String prApellido, String sgApellido, String email, String telefono) {
+    public ClienteVo(String id, String nombre, String prApellido, String sgApellido, String email, String contraseña, String telefono) {
         this.id = id;
         this.nombre = nombre;
-        this.prApellido = prApellido;
-        this.sgApellido = sgApellido;
         this.email = email;
+        this.contraseña = contraseña;
         this.telefono = telefono;
     }
 
@@ -56,6 +55,14 @@ public class ClienteVo extends PersonaVo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getTelefono() {
