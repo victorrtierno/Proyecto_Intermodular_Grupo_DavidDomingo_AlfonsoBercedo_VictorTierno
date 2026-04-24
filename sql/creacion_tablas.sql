@@ -21,6 +21,7 @@ CREATE TABLE Cliente (
     prApellido VARCHAR(100) NOT NULL,
     sgApellido VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
     telefono VARCHAR(15),
     numTarjeta VARCHAR(20),
     fechaRegistro DATETIME DEFAULT CURRENT_TIMESTAMP
