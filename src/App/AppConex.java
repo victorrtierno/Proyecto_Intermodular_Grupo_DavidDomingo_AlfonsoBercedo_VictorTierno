@@ -76,7 +76,7 @@ public class AppConex {
         System.out.println("│   [ 3 ] Salir del Sistema                                            │");
         System.out.println("│                                                                      │");
         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-        System.out.print("\n  > Elige cómo deseas entrar: ");
+        System.out.print("\n  => Elige cómo deseas entrar: ");
     }
 
     private static void accesoClientes(Scanner scanner) {
@@ -87,15 +87,15 @@ public class AppConex {
         System.out.println("│  [ 2 ] Soy nuevo (Registrarme)                                       │");
         System.out.println("│  [ 3 ] Volver atrás                                                  │");
         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-        System.out.print("  > Opción: ");
+        System.out.print("  => Opción: ");
 
         int opcion = scanner.nextInt();
         scanner.nextLine();
 
         if (opcion == 1) {
-            System.out.print("\n  > Introduce tu Email: ");
+            System.out.print("\n  => Introduce tu Email: ");
             String email = scanner.nextLine();
-            System.out.print("  > Introduce tu Contraseña: ");
+            System.out.print("  => Introduce tu Contraseña: ");
             String contrasena = scanner.nextLine();
         
             try {
@@ -145,7 +145,7 @@ public class AppConex {
             
             try {
                 Connection conex = Conexion.getConnection();
-                String consulta = "INSERT INTO Cliente (nombre, prApellido, sgApellido, email, contrasena, telefono) VALUES (?, ?, ?, ?, ?, ?)";
+                String consulta = "INSERT INTO Cliente (nombre, prAppellido, sgApellido, email, contrasena, telefono) VALUES (?, ?, ?, ?, ?, ?)";
                 PreparedStatement pstmt = conex.prepareStatement(consulta);
                 pstmt.setString(1, nombre);
                 pstmt.setString(2, prApellido);
