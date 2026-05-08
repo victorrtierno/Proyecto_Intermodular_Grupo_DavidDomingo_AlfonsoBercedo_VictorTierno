@@ -39,18 +39,18 @@ public class AppConex {
                         break;
                     case 3:
                         System.out.println("┌──────────────────────────────────────────────────────────────────────┐");
-                        System.out.println("│  [OK] Desconectando de la base de datos...                           │");
-                        System.out.println("│  [OK] Apagando el sistema... ¡Hasta pronto!                          │");
+                        System.out.println("│       Desconectando de la base de datos...                           │");
+                        System.out.println("│       Apagando el sistema... ¡Hasta pronto!                          │");
                         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
                         salirDelSistema = true;
                         break;
                     default:
-                        System.out.println("  [!] ERROR: Opción no válida. Elige 1, 2 o 3.");
+                        System.out.println("   ERROR: Opción no válida. Elige 1, 2 o 3.");
                         pausa(scanner);
                 }
             } catch (InputMismatchException e) {
                 limpiarPantalla();
-                System.out.println("  [!] ERROR FATAL: Se esperaba un valor numérico entero.");
+                System.out.println("   ERROR FATAL: Se esperaba un valor numérico entero.");
                 scanner.nextLine();
                 pausa(scanner);
             }
@@ -76,7 +76,7 @@ public class AppConex {
         System.out.println("│   [ 3 ] Salir del Sistema                                            │");
         System.out.println("│                                                                      │");
         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-        System.out.print("\n  ➤ Elige cómo deseas entrar: ");
+        System.out.print("\n  > Elige cómo deseas entrar: ");
     }
 
     private static void accesoClientes(Scanner scanner) {
@@ -87,15 +87,15 @@ public class AppConex {
         System.out.println("│  [ 2 ] Soy nuevo (Registrarme)                                       │");
         System.out.println("│  [ 3 ] Volver atrás                                                  │");
         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-        System.out.print("  ➤ Opción: ");
+        System.out.print("  > Opción: ");
 
         int opcion = scanner.nextInt();
         scanner.nextLine();
 
         if (opcion == 1) {
-            System.out.print("\n  ➤ Introduce tu Email: ");
+            System.out.print("\n  > Introduce tu Email: ");
             String email = scanner.nextLine();
-            System.out.print("  ➤ Introduce tu Contraseña: ");
+            System.out.print("  > Introduce tu Contraseña: ");
             String contrasena = scanner.nextLine();
         
             try {
@@ -110,33 +110,33 @@ public class AppConex {
                         if (resultado.next()) {
                             int idCliente = resultado.getInt("id");
                             String nombre = resultado.getString("nombre");
-                            System.out.println("\n  [OK] ¡Bienvenido de nuevo, " + nombre + "!");
+                            System.out.println("\n   ¡Bienvenido de nuevo, " + nombre + "!");
                             pausa(scanner);
                             menuCliente(scanner, idCliente, nombre);
                         } else {
-                            System.out.println("\n  [!] Error: Email o contraseña incorrectos.");
+                            System.out.println("\n   Error: Email o contraseña incorrectos.");
                             pausa(scanner);
                         }
                     }
                 }
             } catch (Exception e) {
-                System.out.println("  [!] Error de BBDD: " + e.getMessage());
+                System.out.println("   Error de BBDD: " + e.getMessage());
                 pausa(scanner);
             }
 
         } else if (opcion == 2) {
             System.out.println("\n  --- NUEVO REGISTRO ---");
-            System.out.print("  ➤ Nombre: ");
+            System.out.print("  > Nombre: ");
             String nombre = scanner.nextLine();
-            System.out.print("  ➤ Primer Apellido: ");
+            System.out.print("  > Primer Apellido: ");
             String prApellido = scanner.nextLine();
-            System.out.print("  ➤ Segundo Apellido: ");
+            System.out.print("  > Segundo Apellido: ");
             String sgApellido = scanner.nextLine();
-            System.out.print("  ➤ Email: ");
+            System.out.print("  > Email: ");
             String email = scanner.nextLine();
-            System.out.print("  ➤ Contraseña: ");
+            System.out.print("  > Contraseña: ");
             String contrasena = scanner.nextLine();
-            System.out.print("  ➤ Teléfono: ");
+            System.out.print("  > Teléfono: ");
             String telefono = scanner.nextLine();
             
             try {
@@ -151,10 +151,10 @@ public class AppConex {
                 pstmt.setString(6, telefono);
                 pstmt.executeUpdate();
 
-                System.out.println("\n  [OK] ¡Registro completado! Ahora inicia sesión para comprar.");
+                System.out.println("\n   ¡Registro completado! Ahora inicia sesión para comprar.");
                 pausa(scanner);
             } catch (Exception e) {
-                System.out.println("\n  [!] Error al registrar: " + e.getMessage());
+                System.out.println("\n   Error al registrar: " + e.getMessage());
                 pausa(scanner);
             }
         }
@@ -164,9 +164,9 @@ public class AppConex {
         System.out.println("┌──────────────────────────────────────────────────────────────────────┐");
         System.out.println("│  ACCESO DE SEGURIDAD - EMPLEADOS                                     │");
         System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-        System.out.print("  ➤ Usuario: ");
+        System.out.print("  > Usuario: ");
         String usuario = scanner.nextLine();
-        System.out.print("  ➤ Contraseña: ");
+        System.out.print("  > Contraseña: ");
         String password = scanner.nextLine();
 
         try {
@@ -179,15 +179,15 @@ public class AppConex {
 
             if (resultado.next()) {
                 String nombreAdmin = resultado.getString("nombre");
-                System.out.println("\n  [OK] Acceso concedido a: " + nombreAdmin);
+                System.out.println("\n   Acceso concedido a: " + nombreAdmin);
                 pausa(scanner);
                 menuEmpleado(scanner, nombreAdmin);
             } else {
-                System.out.println("\n  [!] ACCESO DENEGADO.");
+                System.out.println("\n   ACCESO DENEGADO.");
                 pausa(scanner);
             }
         } catch (Exception e) {
-            System.out.println("  [!] Error: " + e.getMessage());
+            System.out.println("   Error: " + e.getMessage());
             pausa(scanner);
         }
     }
@@ -205,7 +205,7 @@ public class AppConex {
             System.out.println("│   [ 3 ] Mis Entradas Compradas                                       │");
             System.out.println("│   [ 4 ] Cerrar Sesión                                                │");
             System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-            System.out.print("  ➤ Elige una opción: ");
+            System.out.print("  > Elige una opción: ");
 
             int opcion = scanner.nextInt();
             scanner.nextLine();
@@ -226,7 +226,7 @@ public class AppConex {
                     salirCliente = true;
                     break;
                 default:
-                    System.out.println("  [!] Opción no válida.");
+                    System.out.println("   Opción no válida.");
                     pausa(scanner);
             }
         }
@@ -245,7 +245,7 @@ public class AppConex {
             System.out.println("│   [ 4 ] Eliminar Evento                                              │");
             System.out.println("│   [ 5 ] Cerrar Sesión                                                │");
             System.out.println("└──────────────────────────────────────────────────────────────────────┘");
-            System.out.print("  ➤ Opción CRUD: ");
+            System.out.print("  > Opción: ");
             int opcion = scanner.nextInt();
             scanner.nextLine();
             
@@ -282,7 +282,7 @@ public class AppConex {
                                       ev.getId(), ev.getNombre(), ev.getFecha().toString(), ev.getLugar());
                 }
 
-                System.out.print("\n  ➤ Introduce el ID del evento para más detalles (o 0 para volver): ");
+                System.out.print("\n  > Introduce el ID del evento para más detalles (o 0 para volver): ");
                 String seleccionId = scanner.nextLine();
                 scanner.nextLine();
 
@@ -304,35 +304,35 @@ public class AppConex {
                             System.out.println("┌──────────────────────────────────────────────────────────────────────┐");
                             System.out.println("│  DETALLES DEL EVENTO                                                 │");
                             System.out.println("├──────────────────────────────────────────────────────────────────────┤");
-                            System.out.println("│  Nombre: " + eventoElegido.getNombre());
-                            System.out.println("│  Lugar:  " + eventoElegido.getLugar());
-                            System.out.println("│  Fecha:  " + eventoElegido.getFecha());
+                            System.out.println("│  Nombre: " + eventoElegido.getNombre()+                             "│");
+                            System.out.println("│  Lugar:  " + eventoElegido.getLugar()+                              "│");
+                            System.out.println("│  Fecha:  " + eventoElegido.getFecha()+                              "│");
                             System.out.println("└──────────────────────────────────────────────────────────────────────┘");
                             
                             if (idCliente != null) {
-                                System.out.println("\n  [ 1 ] Comprar Entrada(s)");
+                                System.out.println("\n  [ 1 ] Comprar Entradas");
                             }
                             System.out.println("  [ 2 ] Volver a la cartelera");
-                            System.out.print("\n  ➤ Opción: ");
+                            System.out.print("\n  > Opción: ");
                             
                             int opcDetalle = scanner.nextInt();
                             scanner.nextLine();
 
                             // ==========================================================
-                            // BLOQUE DE COMPRA REAL EN BASE DE DATOS CON TRANSACCIONES
+                            // BLOQUE DE COMPRA EN BASE DE DATOS CON TRANSACCIONES
                             // ==========================================================
                             if (opcDetalle == 1 && idCliente != null) {
                                 System.out.println("\n  --- PROCESANDO COMPRA ---");
-                                System.out.print("  ➤ Introduce tu número de tarjeta para el pago: ");
+                                System.out.print("  > Introduce tu número de tarjeta para el pago: ");
                                 String tarjeta = scanner.nextLine();
-                                System.out.println("\n  [>] Validando tarjeta " + tarjeta + "...");
+                                System.out.println("\n   Validando tarjeta " + tarjeta + "...");
                                 
                                 Connection conxTransaccion = null;
                                 try {
                                     conxTransaccion = Conexion.getConnection();
-                                    conxTransaccion.setAutoCommit(false); // 1. INICIAMOS LA TRANSACCIÓN
+                                    conxTransaccion.setAutoCommit(false); // INICIAMOS LA TRANSACCIÓN
 
-                                    // PASO 1: Buscar un asiento libre para ese evento a través de la Zona
+                                    // Buscar un asiento libre para ese evento a través de la Zona
                                     String sqlBusqueda = "SELECT a.id, z.precioBase FROM Asiento a " +
                                                          "JOIN Zona z ON a.idZona = z.id " +
                                                          "WHERE z.idEvento = ? AND a.estado = 'Libre' LIMIT 1";
@@ -351,14 +351,14 @@ public class AppConex {
                                     }
 
                                     if (idAsiento != -1) {
-                                        // PASO 2: Marcar el asiento como Ocupado
+                                        // Marcar el asiento como Ocupado
                                         String sqlUpdateAsiento = "UPDATE Asiento SET estado = 'Ocupado' WHERE id = ?";
                                         try (PreparedStatement pstUpdate = conxTransaccion.prepareStatement(sqlUpdateAsiento)) {
                                             pstUpdate.setInt(1, idAsiento);
                                             pstUpdate.executeUpdate();
                                         }
 
-                                        // PASO 3: Crear la Venta y recuperar la ID autogenerada de la Venta
+                                        // Crear la Venta y recuperar el ID autogenerado de la Venta
                                         String sqlInsertVenta = "INSERT INTO Venta (idCliente, fecha, precioTotal) VALUES (?, NOW(), ?)";
                                         int idVenta = -1;
                                         // Le pasamos Statement.RETURN_GENERATED_KEYS para que MySQL nos devuelva el ID de la venta
@@ -374,7 +374,7 @@ public class AppConex {
                                             }
                                         }
 
-                                        // PASO 4: Crear la Entrada vinculando el Asiento y la Venta
+                                        // Crear la Entrada vinculando el Asiento y la Venta
                                         String sqlInsertEntrada = "INSERT INTO Entrada (idVenta, idAsiento, precio) VALUES (?, ?, ?)";
                                         try (PreparedStatement pstEntrada = conxTransaccion.prepareStatement(sqlInsertEntrada)) {
                                             pstEntrada.setInt(1, idVenta);
@@ -383,20 +383,20 @@ public class AppConex {
                                             pstEntrada.executeUpdate();
                                         }
 
-                                        conxTransaccion.commit(); // 2. CONFIRMAMOS LA TRANSACCIÓN SI TODO HA IDO BIEN
+                                        conxTransaccion.commit(); // Confirmamos la transacción si todo ha ido bien
                                         
-                                        System.out.println("  [>] Procesando pago de " + precio + "€ para " + eventoElegido.getNombre() + "...");
-                                        System.out.println("  [OK] ¡Compra realizada! Tu asiento es el nº " + idAsiento + ".");
+                                        System.out.println("    Procesando pago de " + precio + "€ para " + eventoElegido.getNombre() + "...");
+                                        System.out.println("   ¡Compra realizada! Tu asiento es el nº " + idAsiento + ".");
                                         
                                     } else {
-                                        System.out.println("  [!] Lo sentimos mucho, ¡Aforo completo! No quedan asientos libres.");
+                                        System.out.println("   Lo sentimos mucho, ¡Aforo completo! No quedan asientos libres.");
                                     }
 
                                 } catch (Exception exCompra) {
-                                    System.out.println("  [!] Error al procesar la compra: " + exCompra.getMessage());
+                                    System.out.println("   Error al procesar la compra: " + exCompra.getMessage());
                                     if (conxTransaccion != null) {
                                         try { 
-                                            conxTransaccion.rollback(); // DESHACEMOS LOS CAMBIOS SI ALGO FALLA
+                                            conxTransaccion.rollback(); // Deshacemos los cambios si algo falla
                                         } catch(Exception rbEx) { }
                                     }
                                 } finally {
@@ -413,23 +413,24 @@ public class AppConex {
                             } else if (opcDetalle == 2) {
                                 salirDetalles = true;
                             } else {
-                                System.out.println("  [!] Opción inválida.");
+                                System.out.println("   Opción inválida.");
                                 pausa(scanner);
                             }
                         }
                     } else {
-                        System.out.println("  [!] No existe ningún evento con ese ID.");
+                        System.out.println("   No existe ningún evento con ese ID.");
                         pausa(scanner);
                     }
                 }
             } catch (Exception e) {
-                System.out.println("  [!] Error de BBDD: " + e.getMessage());
+                System.out.println("   Error de BBDD: " + e.getMessage());
                 pausa(scanner);
                 salirEventos = true;
             }
         }
     }
 
+    // Mostrar las entradas que tiene compradas el usuario
     private static void pantallaMisEntradas(Scanner scanner, int idCliente) {
         System.out.println("┌──────────────────────────────────────────────────────────────────────┐");
         System.out.println("│  MIS ENTRADAS COMPRADAS                                              │");
@@ -467,11 +468,12 @@ public class AppConex {
                 }
             }
         } catch (Exception e) {
-            System.out.println("  [!] Error al consultar el historial: " + e.getMessage());
+            System.out.println("   Error al consultar el historial: " + e.getMessage());
         }
         pausa(scanner);
     }
 
+    // Mostrar los cantantes
     private static void pantallaCantantes(Scanner scanner) {
         try {
             Connection conex = Conexion.getConnection();
@@ -483,7 +485,7 @@ public class AppConex {
                 System.out.printf(" %-2d │ %-26s \n", canta.getId(), canta.getNombre());
             }
         } catch (Exception e) {
-            System.out.println("  [!] Error: " + e.getMessage());
+            System.out.println("   Error: " + e.getMessage());
         }
     }
 
@@ -492,7 +494,7 @@ public class AppConex {
     }
 
     private static void pausa(Scanner scanner) {
-        System.out.print("\n  ➤ Pulsa ENTER para continuar...");
+        System.out.print("\n  > Pulsa ENTER para continuar...");
         scanner.nextLine();
     }
 }
