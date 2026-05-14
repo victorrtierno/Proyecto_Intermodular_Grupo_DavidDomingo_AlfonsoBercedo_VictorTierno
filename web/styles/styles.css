@@ -1,0 +1,478 @@
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+@keyframes aparecerDesdeAbajo {
+    0% { opacity: 0; transform: translateY(50px); } 
+    100% { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes moverCinta {
+    0% { transform: translateX(100vw); }   
+    100% { transform: translateX(-100%); } 
+}
+
+/* =========================================================
+   RESETEO Y BASE
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    color: #f5f5f5; 
+}
+
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    object-position: center; 
+    z-index: -1; 
+    filter: brightness(0.4); 
+}
+
+/* =========================================================
+   CINTA NOTICIAS (MARQUESINA)
+   ========================================================= */
+.cinta-noticias {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #00f0ff, #00f0ff); 
+    color: #000; 
+    padding: 10px 0;
+    overflow: hidden; 
+    white-space: nowrap; 
+    z-index: 100; 
+    border-bottom: 2px solid #fff;
+}
+
+.cinta-texto {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: moverCinta 15s linear infinite; 
+}
+
+/* =========================================================
+   PANTALLA DE INICIO (LOGIN Y REGISTRO)
+   ========================================================= */
+.pantalla-inicio {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 30px; 
+    padding-top: 50px;
+}
+
+.titulo-festival {
+    font-size: 60px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #00eeff, 0 0 20px #ff007f, 0 0 40px #00b7ff; 
+    text-align: center;
+    z-index: 1; 
+    animation: aparecerDesdeAbajo 1s ease-out; 
+}
+
+.contenedor-inicio {
+    border: 3px solid #00f0ff;
+    border-radius: 15px;
+    background: rgba(26, 26, 26, 0.85); 
+    backdrop-filter: blur(5px); 
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; 
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5); 
+    z-index: 1;
+    animation: aparecerDesdeAbajo 1s ease-out 0.2s backwards; 
+}
+
+.contenedor-inicio h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #00f0ff; 
+}
+
+.caja-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+}
+
+.caja-formulario input {
+    border: 2px solid #00f0ff; 
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: #f5f5f5;
+    padding: 12px;
+    outline: none;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.caja-formulario input:focus {
+    border-color: #ff007f; 
+    box-shadow: 0 0 10px #ff007f;
+}
+
+/* Control de visibilidad de los formularios */
+.seccion-oculta { display: none !important; }
+.seccion-activa { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+button {
+    background-color: #00f0ff; 
+    color: #000;
+    border: 2px solid #000;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #ff007f; 
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.btn-empleado {
+    background-color: #333;
+    color: #ff007f;
+    border-color: #ff007f;
+    margin-top: 15px;
+}
+
+.btn-empleado:hover {
+    background-color: #ff007f;
+    color: #fff;
+}
+
+.btn-volver-inicio {
+    background-color: transparent;
+    color: #00f0ff;
+    border: none;
+    text-decoration: underline;
+    margin-top: 10px;
+    text-transform: none;
+}
+
+.btn-volver-inicio:hover {
+    background-color: transparent;
+    color: #ff007f;
+    transform: scale(1);
+}
+
+/* =========================================================
+   MAIN: ESTRUCTURA DEL DASHBOARD
+   ========================================================= */
+.tema-oscuro {
+    background-color: #0a0a0a; 
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; 
+}
+
+.contenedor-general {
+    width: 95%;
+    max-width: 1300px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    min-height: calc(100vh - 90px);
+}
+
+/* =========================================================
+   BARRA DE NAVEGACIÓN LATERAL
+   ========================================================= */
+.barra-navegacion {
+    width: 280px;
+    background: rgba(26, 26, 26, 0.95);
+    border: 2px solid #00f0ff;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: calc(100vh - 120px);
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.nav-btn {
+    background: #0a0a0a;
+    border: 1px solid #00f0ff;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-btn.activo, .nav-btn:hover {
+    background: #00f0ff;
+    color: #000;
+    transform: translateX(5px); /* Pequeño efecto de desplazamiento */
+}
+
+/* =========================================================
+   PANELES DE CONTENIDO
+   ========================================================= */
+.cont-sec {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1; 
+}
+
+.panel-contenido { display: none; width: 100%; animation: aparecerDesdeAbajo 0.4s ease-out; }
+.panel-contenido.activo { display: block; }
+
+.cabecera-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #ff007f; 
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0px 4px 15px -3px #000;
+}
+
+.titulo-principal {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #00eeff, 0 0 20px #ff0080a5; 
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* =========================================================
+   BUSCADOR DE ARTISTAS
+   ========================================================= */
+.seccion-busqueda {
+    display: flex;
+    gap: 10px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-bottom: 2px solid #00f0ff; 
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 30px;
+    justify-content: center; 
+}
+
+.seccion-busqueda input {
+    flex-grow: 1; 
+    max-width: 600px;
+    background-color: #0a0a0a;
+    border: 1px solid #00f0ff;
+    color: #f5f5f5;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.seccion-busqueda input:focus {
+    border-color: #ff007f;
+}
+
+/* =========================================================
+   TARJETAS (ARTISTAS)
+   ========================================================= */
+#contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.tarjeta-item {
+    background-color: #1a1a1a;
+    border: 2px solid #00f0ff; 
+    border-radius: 12px; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.tarjeta-item:hover {
+    transform: translateY(-5px); 
+    border-color: #ff007f; 
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.4);
+}
+
+.tarjeta-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-item h3 {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff007f; 
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00f0ff;
+}
+
+.tarjeta-modo-claro {
+    background-color: #fff;
+    color: #111;
+}
+
+.tarjeta-modo-claro h3 {
+    color: #111;
+    text-shadow: none;
+}
+
+/* =========================================================
+   TABLAS (CARTELERA Y MIS ENTRADAS)
+   ========================================================= */
+.tabla-eventos {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.tabla-eventos th, .tabla-eventos td {
+    border: 1px solid #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.tabla-eventos th {
+    background-color: #0a0a0a;
+    color: #00f0ff;
+    border-bottom: 2px solid #ff007f;
+    text-transform: uppercase;
+}
+
+.tabla-eventos tr:hover {
+    background-color: #2a2a2a;
+}
+
+.btn-comprar {
+    background: #ff007f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    background: #fff;
+    color: #ff007f;
+    box-shadow: 0 0 10px #ff007f;
+}
+
+/* =========================================================
+   MODALES (POPUPS)
+   ========================================================= */
+.ventana-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-contenido {
+    background-color: #1a1a1a;
+    border: 3px solid #ff007f;
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+    animation: aparecerDesdeAbajo 0.3s ease-out;
+}
+
+.modal-contenido h2 {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 8px #ff007f;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.modal-contenido input[type="text"], 
+.modal-contenido textarea {
+    background-color: #0a0a0a;
+    border: 1px solid #ff007f; 
+    color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.modal-contenido input[type="text"]:focus, 
+.modal-contenido textarea:focus {
+    border-color: #00f0ff; 
+}
+               
+.modal-contenido textarea {
+    resize: vertical; 
+    min-height: 80px;
+}
+
+/* =========================================================
+   PIE DE PÁGINA
+   ========================================================= */
+.pie-pagina {
+    margin-top: auto; 
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 13px;
+    color: #00eeff;
+    text-align: center;
+}

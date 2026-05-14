@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datos>
+    <artista>
+        <titulo>Anuel AA</titulo>
+        <descripcion>Líder del movimiento trap latino. Conocido por su estilo único y por ser uno de los pioneros del género urbano actual.</descripcion>
+        <img>https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&amp;fit=crop&amp;w=400&amp;q=80</img>
+        <audio></audio>
+    </artista>
+    
+    <artista>
+        <titulo>Bad Bunny</titulo>
+        <descripcion>El "Conejo Malo". Superestrella global que ha roto todos los récords, fusionando reggaetón, trap y ritmos experimentales.</descripcion>
+        <img>https://images.unsplash.com/photo-1514525253361-b83f859b73c0?auto=format&amp;fit=crop&amp;w=400&amp;q=80</img>
+        <audio></audio>
+    </artista>
+
+    <artista>
+        <titulo>Karol G</titulo>
+        <descripcion>La "Bichota". Referente femenina mundial del género urbano, llenando estadios con sus himnos de empoderamiento y ritmo.</descripcion>
+        <img>https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&amp;fit=crop&amp;w=400&amp;q=80</img>
+        <audio></audio>
+    </artista>
+
+    <artista>
+        <titulo>Feid</titulo>
+        <descripcion>También conocido como "Ferxxo". El artista paisa que ha puesto a todo el mundo a hablar en jerga colombiana con su estilo fresco.</descripcion>
+        <img>https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&amp;fit=crop&amp;w=400&amp;q=80</img>
+        <audio></audio>
+    </artista>
+
+    <artista>
+        <titulo>Myke Towers</titulo>
+        <descripcion>El "Young King". Destacado por su fluidez en el rapeo y su capacidad para crear éxitos que dominan todas las listas de reproducción.</descripcion>
+        <img>https://images.unsplash.com/photo-1511735111819-9a3f7709049c?auto=format&amp;fit=crop&amp;w=400&amp;q=80</img>
+        <audio></audio>
+    </artista>
+</datos>

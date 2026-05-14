@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Eventos - Acceso</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body class="pantalla-inicio">
+    <div class="cinta-noticias">
+      <div class="cinta-texto">
+        GESTIÓN DE EVENTOS 2026 • CONSULTA LA CARTELERA • REGÍSTRATE PARA COMPRAR • 
+      </div>
+    </div>
+
+    <video autoplay muted loop class="video-fondo">
+        <source src="img/festival.mp4" type="video/mp4" />
+    </video>
+
+    <h1 class="titulo-festival">GESTIÓN DE EVENTOS</h1>
+
+    <div class="contenedor-inicio" id="caja-principal">
+      <div id="menu-seleccion" class="seccion-activa">
+        <h2>Bienvenido</h2>
+        <div class="caja-formulario">
+            <button type="button" id="btn-mostrar-login-cliente">Acceso Clientes</button>
+            <button type="button" id="btn-mostrar-registro">Nuevo Registro</button>
+            <button type="button" id="btn-mostrar-login-empleado" class="btn-empleado">Acceso Empleados</button>
+        </div>
+      </div>
+
+      <form id="formulario-login-cliente" class="caja-formulario seccion-oculta" action="#">
+        <h2>Login Cliente</h2>
+        <input type="email" id="email-cliente" placeholder="Email" required />
+        <input type="password" id="clave-cliente" placeholder="Contraseña" required />
+        <button type="submit" class="btn-accion">Entrar</button>
+        <button type="button" class="btn-volver-inicio">⬅ Volver</button>
+      </form>
+
+      <form id="formulario-registro" class="caja-formulario seccion-oculta" action="#">
+        <h2>Registro de Cliente</h2>
+        <input type="text" id="reg-nombre" placeholder="Nombre" required />
+        <input type="text" id="reg-prApellido" placeholder="Primer Apellido" required />
+        <input type="text" id="reg-sgApellido" placeholder="Segundo Apellido" required />
+        <input type="email" id="reg-email" placeholder="Email (@... .com)" required />
+        <input type="password" id="reg-clave" placeholder="Contraseña" required />
+        <input type="text" id="reg-telefono" placeholder="Teléfono" />
+        <button type="submit" class="btn-accion">Crear Cuenta</button>
+        <button type="button" class="btn-volver-inicio">⬅ Volver</button>
+      </form>
+
+      <form id="formulario-login-empleado" class="caja-formulario seccion-oculta" action="#">
+        <h2>Área de Personal</h2>
+        <input type="text" id="usuario-empleado" placeholder="Usuario" required />
+        <input type="password" id="clave-empleado" placeholder="Contraseña" required />
+        <button type="submit" class="btn-accion">Acceder</button>
+        <button type="button" class="btn-volver-inicio">⬅ Volver</button>
+      </form>
+    </div>
+
+    <script src="script/script.js"></script>
+  </body>
+</html>
